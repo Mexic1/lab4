@@ -1,6 +1,6 @@
 package ex1;
 
-public class Copiatoare extends echipamente{
+public class Copiatoare extends echipamente implements java.io.Serializable{
     private int p_ton;
     private String format;
 

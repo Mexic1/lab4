@@ -1,6 +1,6 @@
 package ex1;
 
-public class echipamente {
+public class echipamente implements java.io.Serializable {
     private String nume;
     private int nr_inv;
     private int pret;
@@ -28,6 +28,8 @@ public class echipamente {
     public void setSituatie(String situatie) {
         this.situatie = situatie;
     }
+
+
 
 
     @Override

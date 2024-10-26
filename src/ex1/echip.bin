@@ -1,9 +1,0 @@
-Imprimante{nume=HP Deskjet 1000, ppm=12, rezolutie='600 x 600 dpi', p_cat=1000, color='Color'}
-Imprimante{nume=HP Officejet 7000 Wide, ppm=33, rezolutie='4800x1200 dpi', p_cat=2000, color='color'}
-Imprimante{nume=HP, ppm=33, rezolutie='4800x1200 dpi', p_cat=2000, color='color'}
-Copiatoare{nume=Konica Minolta bizhub C200, p_ton=2000, format='A3'}
-Copiatoare{nume=Konica Minolta bizhub 163, p_ton=1500, format='A4'}
-Copiatoare{nume=Konica, p_ton=1500, format='A4'}
-Sistem de operare{nume=HUSK Office tech Celeron Dual Core E3400, tip_mon='belinea', vit_proc=2.4, c_hdd=500, sys_op='windows'expus}
-Sistem de operare{nume=HUSK Office tech Celeron Dual Core G530, tip_mon='dell', vit_proc=2.6, c_hdd=700, sys_op='linux'vandut}
-Sistem de operare{nume=HUSK, tip_mon='belinea', vit_proc=2.4, c_hdd=500, sys_op='windows'expus}

@@ -1,6 +1,6 @@
 package ex1;
 
-public class sistem extends echipamente{
+public class sistem extends echipamente implements java.io.Serializable{
     private String tip_mon;
     private double vit_proc;
     private int c_hdd;

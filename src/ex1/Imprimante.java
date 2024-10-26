@@ -1,6 +1,6 @@
 package ex1;
 
-public class Imprimante extends echipamente {
+public class Imprimante extends echipamente implements java.io.Serializable{
     private int ppm;
     private String rezolutie;
     private int p_cat;

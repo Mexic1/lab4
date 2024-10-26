@@ -1,8 +1,6 @@
 package ex1;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -11,7 +9,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner sc = new Scanner(new File("F:\\IS Anul 3\\Semestrul 1\\PJ\\lab4\\src\\ex1\\echipamente"));
+        Scanner sc = new Scanner(new File("C:\\Users\\cmora\\Desktop\\Faculta\\Anul3\\Sem1\\PJ\\lab4\\src\\ex1\\echipamente"));
         List<String> items = new ArrayList<>();
         List<echipamente> echip = new ArrayList<>();
 
@@ -174,7 +172,12 @@ public class Main {
                     break;
                 case 10:
                     try {
-                        PrintWriter pw = new PrintWriter("F:\\IS Anul 3\\Semestrul 1\\PJ\\lab4\\src\\ex1\\echip.bin");
+                       // FileWriter oos=new FileWriter("C:\\Users\\cmora\\Desktop\\Faculta\\Anul3\\Sem1\\PJ\\lab4\\src\\ex1\\echip.bin");
+                        //PrintWriter pw = new PrintWriter(oos);
+
+                        FileOutputStream fout=new FileOutputStream("C:\\Users\\cmora\\Desktop\\Faculta\\Anul3\\Sem1\\PJ\\lab4\\src\\ex1\\echip.txt");
+                        ObjectOutputStream out=new ObjectOutputStream(fout);
+
                         System.out.println("1. Serializare");
                         System.out.println("2. Deserializare");
                         int optiune1 = sc1.nextInt();
@@ -182,12 +185,49 @@ public class Main {
                         {
                             for (echipamente e : echip)
                             {
-                                pw.println(e);
+                                out.writeObject(e);
                             }
+                            echip.clear();
+
+                            out.close();
+                            fout.close();
                         } else if (optiune1 == 2) {
-                            // echipamente.deserializare();
+                            FileInputStream fin=new FileInputStream("C:\\Users\\cmora\\Desktop\\Faculta\\Anul3\\Sem1\\PJ\\lab4\\src\\ex1\\echip.txt");
+                            ObjectInputStream in=new ObjectInputStream(fin);
+
+                            while(fin.available()>0)
+                            {
+                                for(int i=0;i<3;i++)
+                                {
+                                    echip.add((Imprimante)in.readObject());
+                                }
+                                for(int i=0;i<3;i++)
+                                {
+                                    echip.add((Copiatoare)in.readObject());
+                                }
+                                for(int i=0;i<3;i++)
+                                {
+                                    echip.add((sistem)in.readObject());
+                                }
+                            }
+//                            {
+//                                if(items.get(5).equals("sistem de calcul"))
+//                                {
+//                                    echip.add(new sistem(items.get(0),Integer.parseInt(items.get(1)),Integer.parseInt(items.get(2)),items.get(3),items.get(4),items.get(5),items.get(6),Double.parseDouble(items.get(7)),Integer.parseInt(items.get(8)), items.get(9)));
+//                                }
+//                                else if(items.get(5).equals("imprimanta"))
+//                                {
+//                                    echip.add(new Imprimante(items.get(0),Integer.parseInt(items.get(1)),Integer.parseInt(items.get(2)),items.get(3),items.get(4),items.get(5),Integer.parseInt(items.get(6)),items.get(7),Integer.parseInt(items.get(8)),items.get(9)));
+//                                }
+//                                else if(items.get(5).equals("copiator"))
+//                                {
+//                                    echip.add(new Copiatoare(items.get(0),Integer.parseInt(items.get(1)),Integer.parseInt(items.get(2)),items.get(3),items.get(4),items.get(5),Integer.parseInt(items.get(6)),items.get(7)));
+//                                }
+//                            }
+                            in.close();
+                            fin.close();
                         }
-                        pw.close();
+
                     }
                     catch (FileNotFoundException e)
                     {
